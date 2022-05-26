@@ -12,27 +12,26 @@ int login() {
 		printf("                                             \n");
 		printf("                                               ");
 		gotoxy(0, 0);
-		printf("ERP SYSTEM Á¦¸ñ\n\n");
-		printf("È¸»ç ÄÚµå\n");
-		printf("È¸»ç¸í\n");
+		printf("ERP SYSTEM ì œëª©\n\n");
+		printf("íšŒì‚¬ ì½”ë“œ\n");
+		printf("íšŒì‚¬ëª…\n");
 		while (1) {
 			if (_getch() == 27) return -1;
 			comp_selected = comp_select();
 			if (comp_selected != 0) {
 				gotoxy(0, 2);
-				printf("È¸»ç ÄÚµå = %04d\n", comp_selected->code);
-				printf("È¸»ç¸í = %s\n\n", comp_selected->name);
+				printf("íšŒì‚¬ ì½”ë“œ = %04d\n", comp_selected->code);
+				printf("íšŒì‚¬ëª… = %s\n\n", comp_selected->name);
 				break;
 			}
-			gotoxy(0, 4);
 		}
 		while (1) {
 			gotoxy(0, 5);
 			printf("                                             \n");
 			printf("                                               ");
 			gotoxy(0, 5);
-			printf("»ç¿ø ÄÚµå\n");
-			printf("»ç¿ø¸í\n");
+			printf("ì‚¬ì› ì½”ë“œ\n");
+			printf("ì‚¬ì›ëª…\n");
 			if (_getch() == 27) {
 				gotoxy(0, 5);
 				printf("                                             \n");
@@ -43,24 +42,24 @@ int login() {
 			emp_selected = emp_select();
 			if (emp_selected != 0) {
 				gotoxy(0, 5);
-				printf("»ç¿ø ÄÚµå = %04d\n", emp_selected->code);
-				printf("»ç¿ø¸í = %s\n\n", emp_selected->name);
+				printf("ì‚¬ì› ì½”ë“œ = %04d\n", emp_selected->code);
+				printf("ì‚¬ì›ëª… = %s\n\n", emp_selected->name);
 				while (1) {
 					gotoxy(0, 8);
 					printf("                                 \n\n");
 					printf("                                 ");
 					gotoxy(0, 8);
-					printf("ÆÐ½º¿öµå = ");
+					printf("íŒ¨ìŠ¤ì›Œë“œ = ");
 					if (Input_string(PW, 10, 0, 1, 1, 1, 0) == 0) {
 						gotoxy(0, 8);
 						printf("                                 ");
 						break;
 					}
 					else {
-						if (strcmp(PW, "system") == 0)		//¼öÁ¤ÇÊ¿ä
+						if (strcmp(PW, "system") == 0)		//ìˆ˜ì •í•„ìš”
 							return 1;
 						else {
-							printf("\nÆÐ½º¿öµå°¡ Æ²¸³´Ï´Ù.\n");
+							printf("\níŒ¨ìŠ¤ì›Œë“œê°€ í‹€ë¦½ë‹ˆë‹¤.\n");
 							_getch();
 							continue;
 						}
@@ -82,9 +81,9 @@ company* comp_select() {
 	cursorInfo.bVisible = FALSE;
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 	gotoxy(select_pos_x, 0);
-	printf("È¸»ç ¸®½ºÆ®");
+	printf("íšŒì‚¬ ë¦¬ìŠ¤íŠ¸");
 	gotoxy(select_pos_x, 2);
-	printf("È¸»çÄÚµå     È¸»ç¸í");
+	printf("íšŒì‚¬ì½”ë“œ     íšŒì‚¬ëª…");
 	while (1) {
 		comp_cur = comp_head->next;
 		for (int i = 0; i < comp_count; i++) {
@@ -155,9 +154,9 @@ employee* emp_select() {
 	cursorInfo.bVisible = FALSE;
 	SetConsoleCursorInfo(GetStdHandle(STD_OUTPUT_HANDLE), &cursorInfo);
 	gotoxy(select_pos_x, 0);
-	printf("»ç¿ø ¸®½ºÆ®");
+	printf("ì‚¬ì› ë¦¬ìŠ¤íŠ¸");
 	gotoxy(select_pos_x, 2);
-	printf("»ç¿øÄÚµå     »ç¿ø¸í");
+	printf("ì‚¬ì›ì½”ë“œ     ì‚¬ì›ëª…");
 	while (1) {
 		emp_cur = emp_head->next;
 		for (int i = 0; i < emp_count; i++) {
